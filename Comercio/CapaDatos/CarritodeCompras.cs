@@ -12,9 +12,11 @@ namespace CapaDatos
         string descripcion;
         double precio;
         int idCompra;
-        //int cantidad;
-        //Producto miproducto;
 
+        #region Constructores
+        /// <summary>
+        /// Constructur por defecto
+        /// </summary>
         public CarritodeCompras()
         {
             this.descripcion = "Sin decripcion";
@@ -22,6 +24,12 @@ namespace CapaDatos
             this.idCompra = -1;
         }
 
+        /// <summary>
+        /// Constructor con parametros.
+        /// </summary>
+        /// <param name="decripcion"></param>
+        /// <param name="precio"></param>
+        /// <param name="idCompra"></param>
         public CarritodeCompras(string decripcion, double precio, int idCompra) : this()
         {
             this.descripcion = decripcion;
@@ -29,23 +37,32 @@ namespace CapaDatos
             this.idCompra = idCompra;
         }
 
-        public double IdCompra
+        #endregion
+
+        #region Propiedades
+        /// <summary>
+        /// Propidad de GEt id compra
+        /// </summary>
+        public int IdCompra
         {
             get { return this.idCompra; }
         }
-        
+        /// <summary>
+        /// Propiedad de Get Desgreciones 
+        /// </summary>
         public string Descripcion
         {
             get { return this.descripcion; }
         }
-
+        /// <summary>
+        /// Propiedad get del precio.
+        /// </summary>
         public double Precio
         {
             get { return this.precio; }
         }
+        #endregion
 
 
-
-        //calcular subtotal
     }
 }

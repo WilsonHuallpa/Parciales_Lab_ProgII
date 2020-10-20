@@ -9,50 +9,84 @@ namespace CapaDatos
 {
     public static class Comercio
     {
-        //tiene que contener una lista de toda la clases.
-        //manejador principal del programa.
-        //lista de producto. validar que el producto no exita haganla sobre el operador ==,
-        //si tienen un producto esta en 0 no removemos el producto. 
-        //lista de clientes.
         static List<Producto> listaProductos;
-        static List<Cliente> listaClientes;
-        static List<Empleado> listaEmpleados;
+        static List<Persona> listaPersonas;
         static List<venta> listaventas;
+        static Dictionary<string, string> listaUsuario;
+        static Empleado empleadoLogueado;
         static string nombreComercio;
-        
+
+        #region Constructores
+        /// <summary>
+        /// constructor por defecto.
+        /// </summary>
         static Comercio() {
 
             nombreComercio = "Kwik E Mart";
-
-            ListaProductos= new List<Producto>();
-
-            listaClientes = new List<Cliente>();
-
-            listaEmpleados = new List<Empleado>();
-
+            listaProductos = new List<Producto>();
+            listaPersonas = new List<Persona>();
             listaventas = new List<venta>();
+            listaUsuario = new Dictionary<string, string>();
         }
-        
+        #endregion
 
+        #region Propiedades
+        /// <summary>
+        /// Propiedad get listaventas.
+        /// </summary>
         public static List<venta> Listaventas { get => listaventas; }
+
+        /// <summary>
+        /// Propiedad get de nombreComercio.
+        /// </summary>
         public static string NombreComercio { get => nombreComercio; }
 
-        public static List<Cliente> ListaClientes { get => listaClientes; }
-        public static List<Empleado> ListaEmpleados { get => listaEmpleados; }
-        public static List<Producto> ListaProductos { get => listaProductos; set => listaProductos = value; }
+        /// <summary>
+        /// Propiedad de get de listaProduco.
+        /// </summary>
+        public static List<Producto> ListaProductos { get => listaProductos; }
 
+        /// <summary>
+        /// Getter del empleado logueado
+        /// </summary>
+        public static Empleado EmpleadoLogueado { get => empleadoLogueado; }
+
+        /// <summary>
+        /// Getter del Dictionary con los usuarios y sus claves.
+        /// </summary>
+        public static Dictionary<string, string> ListaUsuario { get => listaUsuario;}
+
+        /// <summary>
+        /// Getter de lista de personas
+        /// </summary>
+        public static List<Persona> ListaPersonas { get => listaPersonas; }
+
+        #endregion
+
+        #region Metodos
+        /// <summary>
+        /// Metodo calcular el stock de Producto.
+        /// </summary>
+        /// <returns>la cantidad total de productos en el comercio.</returns>
         public static int StockDeProducto()
         {
-            int cantidad = 0;
+            int acumulador = 0;
 
             for (int i = 0; i < ListaProductos.Count; i++)
             {
-                cantidad += ListaProductos[i].Stock;
+                acumulador += ListaProductos[i].Stock;
             }
 
-            return cantidad;
+            return acumulador;
         }
 
+
+
+        /// <summary>
+        /// Metodo que crea una sublista solo con la idEmpleado.
+        /// </summary>
+        /// <param name="idEmpleado"></param>
+        /// <returns>retorno la una sublista.</returns>
         public static List<venta> GetListaVentas(int idEmpleado)
         {
             List<venta> auxListaventas = new List<venta>();
@@ -68,7 +102,10 @@ namespace CapaDatos
         }
 
        
-
+        /// <summary>
+        /// crea una sublista con los producto de menor de 10 cantidad.
+        /// </summary>
+        /// <returns>Retorno una sublista de Producto</returns>
         public static List<Producto> StockMenorde10()
         {
             List<Producto> auxproductos = new List<Producto>();
@@ -76,26 +113,33 @@ namespace CapaDatos
             for (int i = 0; i < ListaProductos.Count; i++)
             {
                 if(ListaProductos[i].Stock < 10)
+
                     auxproductos.Add(ListaProductos[i]);
             }
 
             return auxproductos;
         }
 
-
+        /// <summary>
+        /// validar si el cliente es un miembro de la familia simpson
+        /// </summary>
+        /// <param name="auxClient"> cliente a validar.</param>
+        /// <returns>true si es simpson, false si no lo es.</returns>
         public static bool DescuentoASimpson (Cliente auxClient)
         {
             if(auxClient.Apellido == "Simpson")
             {
                 return true;
             }
-
             return false;
         }
 
-
-        //hardcodeo de usuario
-
+        /// <summary>
+        /// Valida si el valor de stock solicitado es menor al disponible.
+        /// </summary>
+        /// <param name="idProducto"> id del producto.</param>
+        /// <param name="auxCantidad">Cantidad sugerida</param>
+        /// <returns>true si auxcantidad es menor o igual al stock de producto.</returns>
         public static bool ValidarCantidad(int idProducto, int auxCantidad)
         {
             for (int i = 0; i < ListaProductos.Count; i++)
@@ -109,75 +153,154 @@ namespace CapaDatos
         }
 
 
-        public static void HarcodeoProducto()
-        {
-            ListaProductos.Add(new Producto(1001, "marca1", 100, "Descripcion1",5));
-            ListaProductos.Add(new Producto(1002, "marca2", 100, "Descripcion2",6));
-            ListaProductos.Add(new Producto(1003, "marca3", 100, "Descripcion3",7));
-            ListaProductos.Add(new Producto(1004, "marca4", 100, "Descripcion4",34));
-            ListaProductos.Add(new Producto(1005, "marca5", 100, "Descripcion5",55));
-            ListaProductos.Add(new Producto(1006, "marca6", 100, "Descripcion6",2));
-            ListaProductos.Add(new Producto(1007, "marca7", 100, "Descripcion7",5));
-            ListaProductos.Add(new Producto(1008, "marca8", 100, "Descripcion8",55));
-            ListaProductos.Add(new Producto(1009, "marca9", 100, "Descripcion9",77));
-            ListaProductos.Add(new Producto(1010, "marca10", 100, "Descripcion10",55));
- 
-        }
-
+        /// <summary>
+        /// Hace una carga instantanea de 5 clientes
+        /// </summary>
         public static void HarcodeoCliente()
         {
-            listaClientes.Add(new Cliente("wilson", "Simpson",111111,"22222","@gmail"));
-            listaClientes.Add(new Cliente("Ariel", "Simpson",111111,"22222","@gmail"));
-            listaClientes.Add(new Cliente("yona", "Huallpa",111111,"22222","@gmail"));
-            listaClientes.Add(new Cliente("Maxi", "Huallpa", 111111,"22222","@gmail"));
-            listaClientes.Add(new Cliente("Tavo", "Huallpa", 111111,"22222","@gmail"));
-            listaClientes.Add(new Cliente("Nestor", "Huallpa", 111111,"22222","@gmail"));
+            string[] nombreClientes = new string[5] { "Homero", "Barney", "Montgomery", "Ned", "Waylon" };
+            string[] apellidoClientes = new string[5] { "Simpson", "Gomez", "Burns", "Flanders", "Smithers" };
+            double[] dni = new double[5] { 22222222, 33333333, 44444444, 55555555, 66666666 };
+
+            for (int i = 0; i < 5; i++)
+            {
+                listaPersonas.Add(new Cliente(nombreClientes[i], apellidoClientes[i], dni[i]));
+            }
         }
 
-       public static void HarcodeoEmpleado()
+        /// <summary>
+        /// Hardcodeo de usuarios para login de empleados
+        /// </summary>
+        public static void HardcodeoUsuarios()
         {
-            listaEmpleados.Add(new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"));
-            listaEmpleados.Add(new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"));
+            listaUsuario.Add("huallpa", "123456");
+            listaUsuario.Add("porcel", "12345");
+            listaUsuario.Add("condori", "1234");
         }
+        /// <summary>
+        /// Harcodeo de 3 empleados. 
+        /// </summary>
+        public static void HarcodeoEmpleado()
+        {
+            string[] nombre = new string[3] { "Wilson", "Ariel", "Nestor" };
+            string[] apellido = new string[3] { "Huallpa", "Porcel", "Condori" };
+            int[] id = new int[3] { 1, 2, 3 };
+            string[] usuario = new string[3] { "huallpa", "porcel", "condori" };
+
+            for (int i = 0; i < 3; i++)
+            {
+                listaPersonas.Add(new Empleado(nombre[i], apellido[i], id[i], usuario[i]));
+            }
+        }
+
+        /// <summary>
+        /// Hace una carga instantanea de 5 productos perecederos
+        /// </summary>
+
+        public static void HardcodeoProductosPerecederos()
+        {
+            string[] descripcion = new string[5] { "Leche", "Queso", "Yogurt", "Crema", "Queso" };
+            double[] precio = new double[5] { 54, 235, 110, 115, 51 };
+            int[] idProducto = new int[5] { 2, 7, 13, 18, 19 };
+            int[] stock = new int[5] { 7, 44, 48, 50, 78 };
+
+            Producto.ETipo[] tipoProducto = new Producto.ETipo[5] {Producto.ETipo.perecedero,Producto.ETipo.perecedero,
+            Producto.ETipo.perecedero, Producto.ETipo.perecedero, Producto.ETipo.perecedero};
+
+
+            for (int i = 0; i < 5; i++)
+            {
+                listaProductos.Add(new ProductoPerecedero(descripcion[i], idProducto[i], precio[i], stock[i], tipoProducto[i]));
+            }
+        }
+
+
+        /// <summary>
+        /// Hace una carga instantanea de 10 productos no precederos
+        /// </summary>
+        public static void HardcodeoProductosNoPerecederos()
+        {
+            string[] descripcion = new string[10] { "Azucar", "Yerba", "Chocolate", "Galletitas", "Pan lactal",
+             "Miel", "Cereales", "Fideos", "Gaseosa", "Dulce de leche" };
+
+            double[] precio = new double[10] { 197, 88, 120, 78, 132,
+            123, 115, 63, 177, 48};
+
+            int[] idProducto = new int[10] { 1, 3, 4, 5, 6, 8, 9, 10, 11, 12 };
+
+            int[] stock = new int[10] { 8, 7, 9, 3, 15, 23, 44, 18, 2, 4 };
+
+            Producto.ETipo[] tipoProducto = new Producto.ETipo[10] {Producto.ETipo.noPerecedero,
+            Producto.ETipo.noPerecedero,Producto.ETipo.noPerecedero,Producto.ETipo.noPerecedero ,Producto.ETipo.noPerecedero,
+            Producto.ETipo.noPerecedero, Producto.ETipo.noPerecedero, Producto.ETipo.noPerecedero,
+            Producto.ETipo.noPerecedero, Producto.ETipo.noPerecedero };
+
+            for (int i = 0; i < 10; i++)
+            {
+                listaProductos.Add(new ProductoNoPerecedero(descripcion[i], idProducto[i], precio[i], stock[i], tipoProducto[i]));
+            }
+        }
+
+        /// <summary>
+        /// Hace una carga instantanea de 5 articulos de almacen
+        /// </summary>
+        public static void HardcodeoProductosAlmacen()
+        {
+            string[] descripcion = new string[5] { "Jabon", "Shampoo", "Acondicionador", "Jabon liquido", "Jabon en polvo" };
+
+            double[] precio = new double[5] { 30, 140, 130, 135, 150 };
+
+            int[] idProducto = new int[5] { 26, 27, 28, 29, 30 };
+
+            int[] stock = new int[5] { 5, 6, 48, 63, 84 };
+
+            Producto.ETipo[] tipoProducto = new Producto.ETipo[5] {Producto.ETipo.almacen, Producto.ETipo.almacen,
+            Producto.ETipo.almacen, Producto.ETipo.almacen, Producto.ETipo.almacen};
+
+            for (int i = 0; i < 5; i++)
+            {
+                listaProductos.Add(new ProductoAlmacen(descripcion[i], idProducto[i], precio[i], stock[i], tipoProducto[i]));
+            }
+        }
+
 
         public static void HardcodeoCompras()
         {
-            //string nombre, string apellido, double dni, string telefono, int id, string usuario
-            Empleado[] auxEmpleado = new Empleado[50] {new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"), new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),
-            new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),
-            new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),
-            new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),
-            new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),
-            new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),
-            new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),new Empleado("Empleado1", "Apellido1", 222222, "11111111", 2222,"usuario1"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"), new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),
-            new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2"),new Empleado("Empleado2", "Apellido2", 222222, "22222222", 2222,"usuario2")};
+            Empleado[] auxEmpleado = new Empleado[50] {new Empleado("Wilson", "Huallpa",1, "huallpa"), new Empleado("Wilson", "Huallpa",1, "huallpa"),
+            new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),
+            new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),
+            new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),
+            new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),
+            new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),
+            new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),new Empleado("Wilson", "Huallpa",1, "huallpa"),
+            new Empleado("Ariel", "Porcel",2, "porcel"), new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),
+            new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),
+            new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),
+            new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),
+            new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),
+            new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),
+            new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),new Empleado("Ariel", "Porcel",2, "porcel"),
+            new Empleado("Nestor", "Condori", 3, "condori"),new Empleado("Nestor", "Condori", 3, "condori"),new Empleado("Nestor", "Condori", 3, "condori"),
+            new Empleado("Nestor", "Condori", 3, "condori"),new Empleado("Nestor", "Condori", 3, "condori"),new Empleado("Nestor", "Condori", 3, "condori"),
+            new Empleado("Nestor", "Condori", 3, "condori"),new Empleado("Nestor", "Condori", 3, "condori"),new Empleado("Nestor", "Condori", 3, "condori")};
 
-            Cliente[] auxCliente = new Cliente[50] {new Cliente("Ned","Flanders",333333,"22222","@gmail"), new Cliente("Ned","Flanders",333333,"22222","@gmail"),
-            new Cliente("Ned","Flanders",333333,"22222","@gmail"),new Cliente("Homero","Simpson",123456,"22222","@gmail"),new Cliente("Ned","Flanders",333333,"22222","@gmail"),
-            new Cliente("Homero","Simpson",123456,"22222","@gmail"),new Cliente("Ned","Flanders",333333,"22222","@gmail"),new Cliente("Homero","Simpson",123456,"22222","@gmail"),
-            new Cliente("Homero","Simpson",123456,"22222","@gmail"), new Cliente("Homero","Simpson",123456,"22222","@gmail"),new Cliente("Homero","Simpson",123456,"22222","@gmail"),new Cliente("Homero","Simpson",123456,"22222","@gmail"),
-            new Cliente("Homero","Simpson",123456,"22222","@gmail"),new Cliente("Ned","Flanders",333333,"22222","@gmail"),new Cliente("Ned","Flanders",333333,"22222","@gmail"),
-            new Cliente("Homero","Simpson",123456,"22222","@gmail"),new Cliente("Homero","Simpson",123456,"22222","@gmail"),new Cliente("Homero","Simpson",123456,"22222","@gmail"),
-            new Cliente("Ned","Flanders",333333,"22222","@gmail"),new Cliente("Ned","Flanders",333333,"22222","@gmail"), new Cliente("Barney","Gomez",7891011,"22222","@gmail"),
-            new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Waylon","Smithers",4444,"22222","@gmail"),
-            new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Waylon","Smithers",4444,"22222","@gmail"),
-            new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),
-            new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),
-            new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),
-            new Cliente("Waylon","Smithers",4444,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),new Cliente("Barney","Gomez",7891011,"22222","@gmail"),
-            new Cliente("Montgomery","Burns",2222222,"22222","@gmail"), new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),
-            new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),
-            new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),new Cliente("Montgomery","Burns",2222222,"22222","@gmail"),
-            new Cliente("Montgomery","Burns",2222222,"22222","@gmail"), new Cliente("Montgomery","Burns",2222222,"22222","@gmail")};
+            Cliente[] auxCliente = new Cliente[50] {new Cliente("Ned","Flanders",333333), new Cliente("Ned","Flanders",333333),
+            new Cliente("Ned","Flanders",333333),new Cliente("Homero","Simpson",123456),new Cliente("Ned","Flanders",333333),
+            new Cliente("Homero","Simpson",123456),new Cliente("Ned","Flanders",333333),new Cliente("Homero","Simpson",123456),
+            new Cliente("Homero","Simpson",123456), new Cliente("Homero","Simpson",123456),new Cliente("Homero","Simpson",123456),new Cliente("Homero","Simpson",123456),
+            new Cliente("Homero","Simpson",123456),new Cliente("Ned","Flanders",333333),new Cliente("Ned","Flanders",333333),
+            new Cliente("Homero","Simpson",123456),new Cliente("Homero","Simpson",123456),new Cliente("Homero","Simpson",123456),
+            new Cliente("Ned","Flanders",333333),new Cliente("Ned","Flanders",333333), new Cliente("Barney","Gomez",7891011),
+            new Cliente("Waylon","Smithers",4444),new Cliente("Waylon","Smithers",4444),new Cliente("Waylon","Smithers",4444),
+            new Cliente("Waylon","Smithers",4444),new Cliente("Waylon","Smithers",4444),new Cliente("Waylon","Smithers",4444),
+            new Cliente("Waylon","Smithers",4444),new Cliente("Barney","Gomez",7891011),new Cliente("Barney","Gomez",7891011),
+            new Cliente("Waylon","Smithers",4444),new Cliente("Barney","Gomez",7891011),new Cliente("Barney","Gomez",7891011),
+            new Cliente("Waylon","Smithers",4444),new Cliente("Barney","Gomez",7891011),new Cliente("Barney","Gomez",7891011),
+            new Cliente("Waylon","Smithers",4444),new Cliente("Barney","Gomez",7891011),new Cliente("Barney","Gomez",7891011),
+            new Cliente("Montgomery","Burns",2222222), new Cliente("Montgomery","Burns",2222222),new Cliente("Montgomery","Burns",2222222),
+            new Cliente("Montgomery","Burns",2222222),new Cliente("Montgomery","Burns",2222222),new Cliente("Montgomery","Burns",2222222),
+            new Cliente("Montgomery","Burns",2222222),new Cliente("Montgomery","Burns",2222222),new Cliente("Montgomery","Burns",2222222),
+            new Cliente("Montgomery","Burns",2222222), new Cliente("Montgomery","Burns",2222222)};
 
             string[] descripcion = new string[50] { "Azucar", "Leche", "Yerba", "Chocolate", "Galletitas", "Pan lactal", "Queso",
             "Jabon", "Shampoo", "Acondicionador", "Miel", "Cereales", "Yogurt", "Fideos", "Gaseosa", "Jabon liquido",
@@ -204,5 +327,63 @@ namespace CapaDatos
         }
 
 
+        ///// <summary>
+        ///// Verifica si en una lista de tipo Persona existen objetos de tipo Empleado y crea una sublista
+        ///// </summary>
+        ///// <returns>List<> de tipo Empleado</returns>
+        public static List<Empleado> GetListaEmpleados()
+        {
+            List<Empleado> auxListaEmpleados = new List<Empleado>();
+
+            foreach (Persona item in listaPersonas)
+            {
+                if (item is Empleado)
+                {
+                    auxListaEmpleados.Add((Empleado)item);
+                }
+            }
+
+            return auxListaEmpleados;
+        }
+
+        /// <summary>
+        /// Verifica si en una lista de tipo Persona existen objetos de tipo Cliente y crea una sublista
+        /// </summary>
+        /// <returns>List<> de tipo Cliente</returns>
+        public static List<Cliente> GetListaClientes()
+        {
+            List<Cliente> auxListaClientes = new List<Cliente>();
+
+            foreach (Persona item in listaPersonas)
+            {
+                if (item is Cliente)
+                {
+                    auxListaClientes.Add((Cliente)item);
+                }
+            }
+
+            return auxListaClientes;
+        }
+
+        /// <summary>
+        /// Crea un objeto de tipo Empleado referente al empleado logueado
+        /// </summary>
+        /// <param name="usuarioActivo"></param>
+        public static void AuxEmpleadoLogueado(string usuarioActivo)
+        {
+            List<Empleado> auxListaEmpleados;
+
+            auxListaEmpleados = GetListaEmpleados();
+
+            for (int i = 0; i < auxListaEmpleados.Count; i++)
+            {
+                if (auxListaEmpleados[i].Usuario == usuarioActivo)
+                {
+                    empleadoLogueado = auxListaEmpleados[i];
+                    break;
+                }
+            }
+        }
+        #endregion
     }
 }

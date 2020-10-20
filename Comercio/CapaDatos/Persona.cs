@@ -6,49 +6,46 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class Persona
+    public abstract class Persona
     {
         protected string nombre;
         protected string apellido;
-        protected double dni;
-        protected string telefono;
 
+        /// <summary>
+        /// Construcion por defecto.
+        /// </summary>
         private Persona()
         {
             this.nombre = "Sin Nombre";
             this.apellido = "Sin Apellido";
-            this.dni = 00000000 ;
-            this.telefono = "121212";
         }
 
-
-        public Persona(string nombre_Persona, string apellido_Persona,double dni_Persona, string telefono):this()
+        /// <summary>
+        /// Constructor con parametros.
+        /// </summary>
+        /// <param name="nombre_Persona"></param>
+        /// <param name="apellido_Persona"></param>
+        public Persona(string nombre_Persona, string apellido_Persona):this()
         {
             this.nombre = nombre_Persona;
             this.apellido = apellido_Persona;
-            this.dni = dni_Persona;
-            this.telefono = telefono;
         }
-
+        /// <summary>
+        /// Getter de atributo nombre.
+        /// </summary>
         public string Nombre 
         {
             get { return this.nombre; }
         }
-
+        /// <summary>
+        /// Getter de atributo apellido
+        /// </summary>
         public string Apellido
         {
             get{ return apellido; }
         }
-
-        public double Dni
-        {
-            get{ return dni; }
-        }
-
-        public string Telefono
-        {
-            get{return telefono; }
-        }
       
+        public abstract string Ingresado();
+
     }
 }

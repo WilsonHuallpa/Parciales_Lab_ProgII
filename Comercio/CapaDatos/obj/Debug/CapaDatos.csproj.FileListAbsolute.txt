@@ -4,3 +4,9 @@ C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\CapaPresentacion\Cap
 C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\CapaPresentacion\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
 C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\CapaPresentacion\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\CapaPresentacion\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\Comercio\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\Comercio\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\Comercio\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\Comercio\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\Comercio\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\Comercio\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache

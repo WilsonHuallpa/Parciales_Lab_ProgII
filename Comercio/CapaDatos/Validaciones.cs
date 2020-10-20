@@ -9,14 +9,6 @@ namespace CapaDatos
     public static class Validaciones
     {
 
-        //Que el campo de datos no se vacio.
-        //1. no se puede cargar un campo de formulario que me rompa el codigo de producto.
-        //2. no puedo dar de alta algo vacio.
-        //3. no puedo editar un comobox.
-        //4. no cierre un formulario y me agregar un empleado/ producto / cliente null.
-        //5. comverciones de texto.
-
-
         /// <summary>
         /// Verifica si el numero ingresado es menor o igual a 0
         /// </summary>
@@ -27,14 +19,13 @@ namespace CapaDatos
             if (auxNumero <= 0)
             {
                 return true;
-
             }
+
             else
             {
                 return false;
             }
         }
-
         /// <summary>
         /// Verifica si el elemento ingresado es un string null, vacio o menor a 2 caracteres
         /// </summary>
@@ -55,13 +46,6 @@ namespace CapaDatos
 
 
 
-        //public static bool ValidarEntero(int min, int max)
-        //{
 
-        //    return false;
-        //}
-
-
-        //que el string tenga mas de dos letras. poner el samari
     }
 }
