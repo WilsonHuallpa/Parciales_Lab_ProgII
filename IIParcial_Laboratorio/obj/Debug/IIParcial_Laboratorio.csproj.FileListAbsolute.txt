@@ -1,0 +1,24 @@
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.csprojAssemblyReference.cache
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.FrmAgregar.resources
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.FrmTurnos.resources
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.Properties.Resources.resources
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.csproj.GenerateResource.cache
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.csproj.CoreCompileInputs.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\IIParcial_Laboratorio.exe.config
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\IIParcial_Laboratorio.exe
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\IIParcial_Laboratorio.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\Entidades.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\Entidades.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.csprojAssemblyReference.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.FrmAgregar.resources
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.FrmTurnos.resources
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.Properties.Resources.resources
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.csproj.GenerateResource.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.csproj.CoreCompileInputs.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.csproj.CopyComplete
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.exe
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\obj\Debug\IIParcial_Laboratorio.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\Exception.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\Exception.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\Archivos.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\IIParcial_Laboratorio\bin\Debug\Archivos.pdb

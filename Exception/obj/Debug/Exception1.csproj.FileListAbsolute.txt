@@ -1,0 +1,6 @@
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Exception\bin\Debug\Exception.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Exception\bin\Debug\Exception.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Exception\obj\Debug\Exception1.csprojAssemblyReference.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Exception\obj\Debug\Exception1.csproj.CoreCompileInputs.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Exception\obj\Debug\Exception.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Exception\obj\Debug\Exception.pdb

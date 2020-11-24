@@ -1,0 +1,9 @@
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\bin\Debug\Archivos.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\bin\Debug\Archivos.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\bin\Debug\Exception.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\bin\Debug\Exception.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\obj\Debug\Archivos.csprojAssemblyReference.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\obj\Debug\Archivos.csproj.CoreCompileInputs.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\obj\Debug\Archivos.csproj.CopyComplete
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\obj\Debug\Archivos.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Archivos\obj\Debug\Archivos.pdb

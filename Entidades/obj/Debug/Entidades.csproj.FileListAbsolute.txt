@@ -1,0 +1,13 @@
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Wilson\Desktop\2°Cuatrimestre\labo_programacion 2\IIParcial_Laboratorio\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\bin\Debug\Entidades.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\obj\Debug\Entidades.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\bin\Debug\Exception.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\bin\Debug\Exception.pdb
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\obj\Debug\Entidades.csproj.CopyComplete
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\bin\Debug\Archivos.dll
+C:\Users\Wilson\Desktop\IIParcial_Laboratorio\Entidades\bin\Debug\Archivos.pdb
